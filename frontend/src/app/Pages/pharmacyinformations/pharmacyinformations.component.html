@@ -1,0 +1,126 @@
+<div id="prescription" #prescription>
+   <button id="backbtn" (click)="goBack()"><i class="fa fa-arrow-circle-left"></i> Back to Options</button>
+
+    <div class="pharmacyIformations" *ngIf="pharmacy">
+                  <span id="title">Pharmacy Informations</span>
+      <span id="titre1">Pharmacy Name : </span><label id="label1">{{pharmacy.nom_pharmacy}}</label><br>
+      <span id="titre2">Pharmacy Adresse : </span> <label id="label2">{{pharmacy.adresse}}</label> <br>
+      <span id="titre3">Pharmacy Phone Number : </span> <label id="label3">{{pharmacy.phone}}</label> <br>
+    </div>
+
+    <div id="table" >
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="drugpharmacy">
+
+          <!-- Medication Column -->
+          <ng-container matColumnDef="Prescription" >
+            <th mat-header-cell *matHeaderCellDef> Prescription </th>
+            <td mat-cell *matCellDef="let element"><span>{{element.drug_name}}</span></td>
+          </ng-container>
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="Coupon" >
+            <th mat-header-cell *matHeaderCellDef> Coupon </th>
+            <td mat-cell *matCellDef="let element"><span>{{element.coupon}}</span></td>
+          </ng-container>
+
+          <!-- Add to bundle Column -->
+          <ng-container matColumnDef="Cash">
+            <th mat-header-cell *matHeaderCellDef>Cash </th>
+            <td mat-cell *matCellDef="let element"><span>{{element.cash_price}}</span></td>
+          </ng-container>
+
+          <ng-container matColumnDef="Delivery_Type" >
+            <th mat-header-cell *matHeaderCellDef>Delivery Type</th>
+            <td mat-cell *matCellDef="let element"><span>{{element.delivery_type}}</span></td>
+          </ng-container>
+
+          <ng-container matColumnDef="Timeframe">
+            <th mat-header-cell *matHeaderCellDef>Timeframe</th>
+            <td mat-cell *matCellDef="let element"><span>{{element.timeframe}}</span></td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="paragraphes">
+      <p>Date of Prescription : {{this.today | date:'dd/MM/yyyy' }}</p>
+      <p>this is only an estimate. The actual price for your prescription will be determined by the
+        pharmacy upon verification of information and order completion .
+      </p>
+    </div>
+
+    <div>
+      <button id="buttons" (click)="print();postPrescription1()" class="print"><i class="fa fa-print"></i>Print</button>
+      <button id="buttons" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><i class="fa fa-envelope"></i>Email to Patient</button>
+      <button id="buttons" data-toggle="modal" data-target="#exampleModal1" data-whatever="@getbootstrap"><i class="fa fa-envelope"></i>Text to Patient</button>
+      <button id="buttons" routerLink="/"><i class="fa fa-search"></i>Start New Search</button>
+  </div>
+</div>
+  <!----------Send Email------------>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Email Pharmacy Details to patient</h5>
+        <button style="border : none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <h3>Send Email to Patient</h3>
+            <h4>Send an email to your patient about the pharmacy that will receive the precription.</h4>
+            <label for="recipient-name" class="col-form-label" >Patient Name</label><br>
+            <input #NameBox id="Name-box" class="input1" type="text" name="phone" placeholder="Enter patient name" style="text-transform: capitalize;" required>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Patient Email Address</label><br>
+            <input #EmailBox id="Email-box" class="input1" type="email" name="email" placeholder="Enter patient adresse" required>
+          </div>
+          <div class="modal-footer">
+            <button id="Ebutton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-window-close"></i>Close</button>
+            <button (click)="postPrescription(NameBox.value,EmailBox.value)" id="Ebutton" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="sendEmail(EmailBox.value)"><i class="fa fa-paper-plane" ></i>Send Email</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------------Send Text----------->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Text Pharmacy Details to Patient</h5>
+        <button style="border : none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <h3>Send Text Message to Patient</h3>
+            <h4>Send a text message to your patient about the pharmacy that will receive the precription.</h4>
+            <label for="recipient-name" class="col-form-label">Patient Name</label><br>
+            <input id="phone" class="input1" type="text" name="phone" placeholder="Enter patient name" style="text-transform: capitalize;" required>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Patient Phone Number</label><br>
+            <input id="sms" class="input1" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="sms" placeholder="Enter patient Phone Number" required>
+          </div>
+          <div class="modal-footer">
+            <button id="Ebutton" type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-window-close"></i>Close</button>
+            <button id="Ebutton" type="submit" class="btn btn-secondary"><i class="fa fa-paper-plane"></i>Send SMS</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

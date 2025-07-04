@@ -1,0 +1,37 @@
+<body>
+  <!-------------NavBar/SideBar----------->
+  <div>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <img id="logoApp" src="../assets/images/132.png"  alt="LogoApp"/>
+      </div>
+      <a id="title" routerLink="/">	𝓓𝓻𝓾𝔁𝓪𝓵 𝓟𝓸𝓻𝓽𝓪𝓵</a>
+    </nav>
+    <div id="mySidebar" class="sidebar">
+      <a class="closebtn" (click)="toggleside()">&times;</a>
+      <a href="#" (click)="toggleside()">About</a>
+      <a href="#" (click)="toggleside()">Services</a>
+      <a href="#" (click)="toggleside()">Clients</a>
+      <a href="#" (click)="toggleside()">Contact</a>
+    </div>
+  </div>
+
+  <div class="par1">
+    <h1>Prescription Marketplace</h1>
+    <h4>Find the best pharmacy to send your client's prescription to</h4>
+  </div>
+  <div class="Bundle col-md-3" id="Bundle" >
+    <div>
+      <h4 id="BundleTitle">Bundle</h4>
+      <div class="item" *ngFor="let item of Table">
+        <i class="fa fa-check-circle"></i>
+        <h5>{{item.drug_name}}  {{item.strength}}  {{item.strengthUnit}} {{item.form}}</h5><br>
+        <a id="remove" (click)="delete(item)">Remove</a>
+      </div>
+      <button id="bundlebutton" (click)="get()" routerLink="/BundleItems">See Bundle Details</button>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+</body>

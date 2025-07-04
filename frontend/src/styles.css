@@ -1,0 +1,111 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/*------------sidebar-------------*/
+#title{
+  color: #D9D9D9;
+  position: absolute;
+  margin-left: 140px;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+.navbar{
+  position: fixed;
+  top:0px;
+  left:0px;
+  width: 100%;
+  z-index: 999999;
+}
+
+/*------------titles----------*/
+.par1{
+  margin-left: 70px;
+  margin-top: 80px;
+  color:#4C5D73;
+  display: inline-block;
+  }
+  .par1 h1{
+    font-size: 32px;
+  }
+  .par1 h4{
+    font-size: 24px;
+  }
+ /*--------------bundle----------------*/
+ .Bundle{
+  margin-top: 190px;
+  border:1px solid #16355e;
+  margin-right: 20px;
+  margin-left: 40px;
+  margin-bottom: 30px;
+  background-color:#d9e1eb ;
+  height: auto;
+  width: 25%;
+  visibility: hidden;
+  float: right;
+}
+@media print{
+  #Bundle{
+    display: none;
+  }
+}
+#Bundle #BundleTitle{
+margin-left: 15px;
+margin-top: 15px;
+color:#49526b;
+font-size: 24px;
+}
+
+#bundlebutton{
+margin-top: 40px;
+margin-left: 60px;
+margin-bottom: 30px;
+background-color: #49526b;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+border-radius: 8px;
+font-size: 16px;
+}
+#bundlebutton:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+transform: scale(1.1);
+}
+/*-------------bundle items------------*/
+.item h5{
+display: inline;
+font-size: 18px;
+margin-left: 15px;
+}
+.item{
+padding: 0 0 0 20px;
+margin-top: 30px;
+margin-bottom: 40px;
+}
+.item i {
+font-size: 18px;
+color: rgb(29, 175, 29);
+}
+.item a{
+float: right;
+margin-right: 80px;
+text-decoration: none;
+}
+#remove{
+color:rgba(22, 104, 199, 0.918);
+cursor: pointer;
+}
+#logoApp{
+  position: relative;
+  height: 50px;
+  width: 70px;
+  margin-left: 40px;
+}

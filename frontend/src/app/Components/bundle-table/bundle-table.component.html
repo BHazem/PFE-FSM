@@ -1,0 +1,30 @@
+<div class="tab" style="margin-bottom: 50px;">
+  <table >
+    <thead>
+    <th>Pharmacy</th>
+    <th>Coupon</th>
+    <th>Cash Price</th>
+    <th>Delivery Type</th>
+    <th>TimeFrame</th>
+    <th>Action</th>
+  </thead>
+    <tbody *ngFor="let item of drugpharmacies">
+        <tr class="accordion-toggle" class="clickable-row" data-toggle="collapse" [attr.data-target]="'#acc'+item.id_pharmacy" >
+      <td id="cell">{{item.pharmacy_name}}</td>
+      <td id="cell">{{getcoupon(item)}}</td>
+      <td id="cell">{{getTotalPrice(item)}}</td>
+      <td id="cell">{{getDeliveryType(item)}}</td>
+      <td id="cell">{{getTimeframe(item)}}</td>
+      <td id="cell"> <span id="cell"><a id="select"  routerLink="/BundleInformations/{{item.id_pharmacy}}">Select</a>
+      </span></td>
+  </tr>
+  <tr>
+    <td colspan="6">
+  <div *ngFor="let item2 of getInformations(item)" [attr.id]="'acc'+item.id_pharmacy" class="collapse">
+      <span id="cell1">{{item2.drug_name}}</span> <span id="cell2">{{item2.coupon}}</span> <span id="cell3">{{item2.cash_price}}</span> <span id="cell4">{{item2.delivery_type}}</span> <span id="cell5">{{item2.timeframe}}</span><br/>
+  </div>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  </div>

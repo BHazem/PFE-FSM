@@ -1,0 +1,82 @@
+/*---------titles--------*/
+h4{
+  font-size: 24px;
+}
+#medname{
+font-size: 25px;
+margin-left: 70px;
+margin-top: 30px;
+color:#404040 ;
+}
+/*---------buttons---------*/
+#backbtn{
+background-color: #49526b;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px 0px 70px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+border-radius: 8px;
+}
+#backbtn:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+transform: scale(1.1);
+}
+/*-----------table------------*/
+table {
+width: 100%;
+}
+.mat-elevation-z8
+{
+width:65%;
+margin-top: 30px;
+margin-left: 60px;
+display: inline-block;
+margin-bottom: 30px;
+border:2px solid rgba(0, 0, 255, .2);
+}
+#icon{
+display:block;
+margin-left: 40px;
+background: none;
+border: none;
+color:rgba(22, 104, 199, 0.918);
+}
+#select{
+text-decoration: none;
+color:rgba(22, 104, 199, 0.918);
+}
+th{
+font-weight: bold;
+font-size: 15px;
+}
+@media screen and (max-width : 568px)
+{
+.mat-elevation-z8{
+  width: auto;
+  margin-top: 70px;
+  margin-left: 12px;
+  margin-right: 7px;
+  display: inline-block;
+  margin-bottom: 30px;
+  border:2px solid rgba(0, 0, 255, .2);
+}
+}
+@media screen and (max-width : 1024px)
+{
+.mat-elevation-z8{
+  width: auto;
+  margin-top: 70px;
+  margin-left: 12px;
+  margin-right: 7px;
+  display: inline-block;
+  margin-bottom: 30px;
+  border:2px solid rgba(0, 0, 255, .2);
+}
+}

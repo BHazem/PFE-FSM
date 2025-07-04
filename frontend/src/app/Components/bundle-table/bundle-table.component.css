@@ -1,0 +1,36 @@
+table{
+  margin-top: 20px;
+  margin-left: 70px;
+  width:auto;
+  background-color: rgba(253, 253, 253, 0.842);
+  box-shadow: 5px 3px 6px 5px rgba(0, 0, 255, .2);
+  border:2px solid rgba(0, 0, 255, .2);
+  margin-bottom: 50px;
+}
+
+.collapse{
+  padding:10px 10px 0px 0px;
+}
+th{
+  padding:10px;
+  margin-left: 30px;
+  color : rgb(119, 117, 117);
+}
+tr{
+
+  border-top:1px solid  rgb(137, 148, 148) ;
+}
+
+#cell{
+  padding:10px;
+}
+
+span{
+  margin-right:30px ;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+tr:hover{
+  cursor: pointer;
+  background-color: rgb(211, 209, 209);
+}

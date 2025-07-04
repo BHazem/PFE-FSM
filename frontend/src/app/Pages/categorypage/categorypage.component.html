@@ -1,0 +1,57 @@
+<body>
+  <div class="row">
+    <div class="col">
+
+      <div>
+          <button id="backbtn" routerLink="/"><i class="fa fa-arrow-circle-left" ></i> Back to search</button>
+          <h4 id="catsearch" *ngIf="Categorie">Category : {{Categorie.category_name}}</h4>
+      </div>
+
+      <div>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+
+            <!-- Medication Column -->
+            <ng-container matColumnDef="Drug">
+              <th mat-header-cell *matHeaderCellDef> Drug </th>
+              <td mat-cell *matCellDef="let element"> {{element.drug_name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Strength">
+              <th mat-header-cell *matHeaderCellDef> Strength </th>
+              <td mat-cell *matCellDef="let element"> {{element.strength}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Strength_Unit">
+              <th mat-header-cell *matHeaderCellDef> Strength_Unit </th>
+              <td mat-cell *matCellDef="let element"> {{element.strengthUnit}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Form">
+              <th mat-header-cell *matHeaderCellDef> Form </th>
+              <td mat-cell *matCellDef="let element"> {{element.form}} </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="Action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element"><a id="view" routerLink="/pharmaciesInformations/{{element.id_drug}}">View</a>  </td>
+            </ng-container>
+
+            <!-- Add to bundle Column -->
+            <ng-container matColumnDef="Add_to_bundle">
+              <th mat-header-cell *matHeaderCellDef> Add to bundle </th>
+              <td mat-cell *matCellDef="let element">
+                <button class="icon" id="add{{element.id_drug}}" (click)="onSelect(element)">&plusmn;</button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5,10,15,20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
