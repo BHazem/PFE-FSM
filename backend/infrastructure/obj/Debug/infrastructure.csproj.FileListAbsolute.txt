@@ -1,0 +1,9 @@
+C:\Users\EBI\source\repos\Web\infrastructure\bin\Debug\infrastructure.dll
+C:\Users\EBI\source\repos\Web\infrastructure\bin\Debug\infrastructure.pdb
+C:\Users\EBI\source\repos\Web\infrastructure\bin\Debug\System.Data.SqlClient.dll
+C:\Users\EBI\source\repos\Web\infrastructure\bin\Debug\System.Data.SqlClient.xml
+C:\Users\EBI\source\repos\Web\infrastructure\obj\Debug\infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\EBI\source\repos\Web\infrastructure\obj\Debug\infrastructure.csproj.CopyComplete
+C:\Users\EBI\source\repos\Web\infrastructure\obj\Debug\infrastructure.dll
+C:\Users\EBI\source\repos\Web\infrastructure\obj\Debug\infrastructure.pdb
+C:\Users\EBI\source\repos\Web\infrastructure\obj\Debug\infrastructure.csprojAssemblyReference.cache
